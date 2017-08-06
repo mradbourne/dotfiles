@@ -42,7 +42,7 @@ prompt_git() {
 			git rev-parse --short HEAD 2> /dev/null || \
 			echo '(unknown)')";
 
-		[ -n "${s}" ] && s=" [${s}]";
+		[ -n "${s}" ] && s=" ${s}";
 
 		echo -e "${1}${branchName}${2}${s}";
 	else
@@ -51,10 +51,11 @@ prompt_git() {
 }
 
 reset="\e[0m";
-green="\e[1;32m";
-yellow="\e[1;33m";
-white="\e[1;37m";
-red="\e[1;31m";
+red="\e[0;31m";
+green="\e[0;32m";
+yellow="\e[0;33m";
+white="\e[0;37m";
+orange="\e[38;5;215m";
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
@@ -66,7 +67,7 @@ fi;
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(prompt_git \" \[${yellow}\]\" \"\[${yellow}\]\")"; # Git repository details
+PS1+="\$(prompt_git \" \[${yellow}\]\" \"\[${orange}\]\")"; # Git repository details
 PS1+="\[${userStyle}\] \$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
