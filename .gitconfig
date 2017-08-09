@@ -109,6 +109,9 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 
+	# Clear screen, even for short diffs
+	pager = less -+F -+X
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
