@@ -21,6 +21,9 @@
 	# Commit all changes
 	ca = !git add -A && git commit -av
 
+	# Commit
+	cm = commit
+
 	# Switch to a branch
 	co = checkout
 
