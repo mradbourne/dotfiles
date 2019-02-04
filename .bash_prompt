@@ -51,23 +51,35 @@ prompt_git() {
 }
 
 reset="\e[0m";
-red="\e[0;31m";
-green="\e[0;32m";
-yellow="\e[0;33m";
-white="\e[0;37m";
-orange="\e[38;5;215m";
+default="\e[39m"
+black="\e[30m"
+red="\e[31m"
+green="\e[32m"
+yellow="\e[33m"
+blue="\e[34m"
+magenta="\e[35m"
+cyan="\e[36m"
+lightGray="\e[37m"
+darkGray="\e[90m"
+lightRed="\e[91m"
+lightGreen="\e[92m"
+lightYellow="\e[93m"
+lightBlue="\e[94m"
+lightMagenta="\e[95m"
+lightCyan="\e[96m"
+white="\e[97m"
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${red}";
+	userStyle="${blue}";
 else
-	userStyle="${white}";
+	userStyle="${red}";
 fi;
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(prompt_git \" \[${yellow}\]\" \"\[${orange}\]\")"; # Git repository details
+PS1+="\[${userStyle}\]\w"; # working directory full path
+PS1+="\$(prompt_git \" \[${darkGray}\]\" \"\[${darkGray}\]\")"; # Git repository details
 PS1+="\[${userStyle}\] \$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
