@@ -1,5 +1,47 @@
 #!/usr/bin/env bash
 
+#  When  executing  interactively,  bash displays the primary
+#  prompt PS1 when it is ready to read  a  command,  and  the
+#  secondary  prompt PS2 when it needs more input to complete
+#  a command.  Bash allows these prompt strings  to  be  cus­
+#  tomized by inserting a number of backslash-escaped special
+#  characters that are decoded as follows:
+#         \a     an ASCII bell character (07)
+#         \d     the date  in  "Weekday  Month  Date"  format
+#                (e.g., "Tue May 26")
+#         \e     an ASCII escape character (033)
+#         \h     the hostname up to the first `.'
+#         \H     the hostname
+#         \j     the  number of jobs currently managed by the
+#                shell
+#         \l     the basename of the shell's terminal  device
+#                name
+#         \n     newline
+#         \r     carriage return
+#         \s     the  name  of  the shell, the basename of $0
+#                (the portion following the final slash)
+#         \t     the current time in 24-hour HH:MM:SS format
+#         \T     the current time in 12-hour HH:MM:SS format
+#         \@     the current time in 12-hour am/pm format
+#         \u     the username of the current user
+#         \v     the version of bash (e.g., 2.00)
+#         \V     the release of bash,  version  +  patchlevel
+#                (e.g., 2.00.0)
+#         \w     the current working directory
+#         \W     the  basename  of the current working direc­
+#                tory
+#         \!     the history number of this command
+#         \#     the command number of this command
+#         \$     if the effective UID is 0, a #, otherwise  a
+#                $
+#         \nnn   the  character  corresponding  to  the octal
+#                number nnn
+#         \\     a backslash
+#         \[     begin a sequence of non-printing characters,
+#                which could be used to embed a terminal con­
+#                trol sequence into the prompt
+#         \]     end a sequence of non-printing characters
+
 prompt_git() {
 	local s='';
 	local branchName='';
@@ -68,19 +110,35 @@ lightBlue="\e[94m"
 lightMagenta="\e[95m"
 lightCyan="\e[96m"
 white="\e[97m"
+darculaBlue="\e[38;5;67m"
+darculaOrange="\e[38;5;172m"
+darculaPurple="\e[38;5;103m"
+darculaMidGrey="\e[38;5;188m"
+darculaLightGrey="\e[38;5;250m"
+darculaSeaGreen="\e[38;5;65m"
+darculaYellowGreen="\e[38;5;148m"
+darculaYellow="\e[38;5;222m"
+darculaMauve="\e[38;5;103m"
+darculaDarkGrey="\e[38;5;59m"
+darculaEmeraldGreen="\e[38;5;28m"
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${blue}";
+	userStyle="${yellow}";
 else
-	userStyle="${red}";
+	userStyle="${darkGray}";
 fi;
 
-# Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${userStyle}\]\w"; # working directory full path
-PS1+="\$(prompt_git \" \[${darkGray}\]\" \"\[${darkGray}\]\")"; # Git repository details
-PS1+="\[${userStyle}\] \$ \[${reset}\]"; # `$` (and reset color)
+function wrap_in_bubble {
+	echo "${userStyle}(${1}${userStyle})-${reset}"
+}
+
+PS1="\n$(wrap_in_bubble "${lightBlue}\u@\h")"
+PS1+="$(wrap_in_bubble "${lightBlue}\t")${userStyle}>${reset}"
+PS1+="\n$(wrap_in_bubble "${lightGreen}\w")"
+PS1+="\$(prompt_git \"${userStyle}(${lightGreen}\" \"${userStyle})-${reset}\")"
+PS1+="${userStyle}>${reset}"
+PS1+="\n$ "
 export PS1;
 
 PS2="\[${green}\]→ \[${reset}\]";
