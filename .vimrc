@@ -1,5 +1,5 @@
-" Use Darcula theme
-colorscheme darcula
+" Use codedark theme
+colorscheme codedark
 
 " Make Vim more useful
 set nocompatible
