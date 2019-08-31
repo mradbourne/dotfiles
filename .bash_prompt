@@ -71,15 +71,16 @@ white="\e[97m"
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${blue}";
-else
 	userStyle="${red}";
+else
+	userStyle="${blue}";
 fi;
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\[${userStyle}\]\w"; # working directory full path
-PS1+="\$(prompt_git \" \[${darkGray}\]\" \"\[${darkGray}\]\")"; # Git repository details
+PS1+="\$(prompt_git \" \[${lightGray}\]\" \"\[${lightGray}\]\")"; # Git repository details
+PS1+="\[${darkGray}\] \t"; # current time
 PS1+="\[${userStyle}\] \$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
