@@ -71,9 +71,9 @@ white="\e[97m"
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${red}";
+	userStyle="${lightRed}";
 else
-	userStyle="${blue}";
+	userStyle="${lightBlue}";
 fi;
 
 # Set the terminal title and prompt.
