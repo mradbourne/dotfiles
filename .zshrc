@@ -9,6 +9,9 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+# Create pipenv venv in project directory
+export PIPENV_VENV_IN_PROJECT=true
+
 # -----
 
 # If you come from bash you might have to change your $PATH.
