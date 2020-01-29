@@ -13,9 +13,6 @@ function doIt() {
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
-	echo -e "\nRemember to set your name and email:"
-	echo -e "\tgit config --global user.name \"Matt Radbourne\""
-  echo -e "\tgit config --global user.email \"matt.radbourne@example.com\""
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
