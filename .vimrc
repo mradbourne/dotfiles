@@ -1,5 +1,5 @@
-" Use darcula theme
-colorscheme darcula
+" Set theme
+colorscheme solarized
 
 " Make Vim more useful
 set nocompatible
