@@ -1,5 +1,7 @@
 " Set theme
-colorscheme solarized
+set t_Co=256
+set background=light
+colorscheme PaperColor
 
 " Make Vim more useful
 set nocompatible
