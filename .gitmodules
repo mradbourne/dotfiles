@@ -1,0 +1,3 @@
+[submodule ".vim/pack/tpope/start/vim-vinegar"]
+	path = .vim/pack/tpope/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar.git
