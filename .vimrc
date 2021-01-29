@@ -1,7 +1,11 @@
 " Set theme
-set t_Co=256
 set background=light
-colorscheme PaperColor
+colorscheme solarized
+
+" Enable wildmenu
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
 
 " Make Vim more useful
 set nocompatible
