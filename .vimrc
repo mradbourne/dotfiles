@@ -1,6 +1,6 @@
 " Set theme
-set background=light
-colorscheme solarized
+" set background=light
+" colorscheme solarized
 
 " Enable wildmenu
 set wildchar=<Tab> wildmenu wildmode=full
