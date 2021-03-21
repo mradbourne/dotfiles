@@ -46,3 +46,12 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# Attach to a tmux session if it's installed
+if command -v tmux &> /dev/null
+then
+	[[ $TERM != "screen" ]] && exec tmux new-session -A -s main
+fi
+
+# -------- End of intended content --------
+
