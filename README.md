@@ -13,7 +13,7 @@ sudo apt install tmux
 You can clone the repository wherever you want. (e.g. `~/dotfiles`) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
-git clone https://github.com/mradbourne/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone https://github.com/mradbourne/dotfiles.git && cd dotfiles && git submodule init && git submodule update && source bootstrap.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
