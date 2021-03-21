@@ -80,7 +80,6 @@ fi;
 PS1="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\[${userStyle}\]\w"; # working directory full path
 PS1+="\$(prompt_git \" \[${lightGray}\]\" \"\[${lightGray}\]\")"; # Git repository details
-PS1+="\[${darkGray}\] \t"; # current time
 PS1+="\[${userStyle}\] \$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
