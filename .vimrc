@@ -1,12 +1,3 @@
-" Set theme
-" set background=light
-" colorscheme solarized
-
-" Enable wildmenu
-set wildchar=<Tab> wildmenu wildmode=full
-set wildcharm=<C-Z>
-nnoremap <F10> :b <C-Z>
-
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -103,3 +94,16 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+" Set theme
+" set background=light
+" colorscheme solarized
+
+" Enable wildmenu
+set wildchar=<Tab> wildmenu wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
+
+" Windows beep sound is annoying!
+set visualbell
+
