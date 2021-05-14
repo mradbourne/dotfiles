@@ -11,3 +11,12 @@ unset file;
 
 # Create pipenv venv in project directory
 export PIPENV_VENV_IN_PROJECT=true
+
+# Attach to a tmux session if it's installed
+# TODO: Deduplicate from .bash_profile
+if command -v tmux &> /dev/null
+then
+	[[ $TERM != "screen" ]] && exec tmux new-session -A -s main
+fi
+
+# -------- End of intended content --------

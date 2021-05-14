@@ -48,10 +48,10 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 # Attach to a tmux session if it's installed
+# TODO: Deduplicate from .zshrc
 if command -v tmux &> /dev/null
 then
 	[[ $TERM != "screen" ]] && exec tmux new-session -A -s main
 fi
 
 # -------- End of intended content --------
-
